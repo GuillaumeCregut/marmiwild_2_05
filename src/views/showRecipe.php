@@ -13,6 +13,7 @@
             <p>
                 <?= $recipe['description'] ?>
             </p>
+            <a href="update?id=<?=$recipe['id'] ?>">Modifier</a>
         </main>
     </body>
 </html>

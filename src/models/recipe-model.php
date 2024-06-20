@@ -19,7 +19,7 @@ function getRecipeById(int $id): array|false
 {
     $connection = createConnection();
 
-    $query = 'SELECT title, description FROM recipe WHERE id=:id';
+    $query = 'SELECT id,title, description FROM recipe WHERE id=:id';
     $statement = $connection->prepare($query);
     $statement->bindValue(':id', $id, PDO::PARAM_INT);
     $statement->execute();
@@ -39,3 +39,32 @@ function saveRecipe(array $recipe): void
     $statement->bindValue(':description', $recipe['description'], PDO::PARAM_STR);
     $statement->execute();
 }
+// DELETE FROM recipe WHERE id = :id;
+function deleteRecipeById(int $id) : void 
+{
+    $connection = createConnection();
+    $query = 'DELETE FROM recipe WHERE id=:id';
+    $statement = $connection->prepare($query);
+    $statement->bindValue(':id', $id,PDO::PARAM_INT);
+    $statement->execute();
+}
+
+// UPDATE recipe SET title = :title, description = :description WHERE id = :id; (つ▀¯▀)つ 
+function updateReceipeById(int $id, string $title, string $description): void
+{
+ $connection = createConnection();
+ $query = 'UPDATE recipe SET title=:title, description=:description WHERE id=:id';
+ $statement = $connection->prepare($query);
+ $statement->bindValue(':id', $id,PDO::PARAM_INT);
+ $statement->bindValue(':title', $title, PDO::PARAM_STR);
+ $statement->bindValue(':description', $description, PDO::PARAM_STR);
+ $statement->execute();
+}
+
+
+
+
+
+
+
+

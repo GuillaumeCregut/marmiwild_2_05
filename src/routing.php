@@ -8,6 +8,8 @@ if('/' === $urlPath) {
     showRecipe($_GET['id']);
 } elseif ('/add' === $urlPath) {
     addRecipe();
+} elseif ('/update' === $urlPath && isset($_GET['id'])) {
+    updateRecipe($_GET['id']);
 } else {
     header('HTTP/1.1 404 Not Found');
 }
@@ -23,3 +25,7 @@ switch($urlPath) {
     default : header('HTTP/1.1 404 Not Found');
 }
     */
+
+
+/* LIEN REVISION https://www.youtube.com/watch?v=dQw4w9WgXcQ */
+/*  <(ꐦㅍ _ㅍ)>  muhahahaha ! */
